@@ -1,0 +1,8 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark white-text">
+  <div *ngFor="let link of links">
+    <button mat-button [matMenuTriggerFor]="menu">{{ link.label }}</button>
+    <mat-menu #menu="matMenu">
+      <button *ngFor="let subLink of link.links" mat-menu-item [routerLink]="subLink.url ? [link.url, subLink.url] : link.url">{{ subLink.label }}</button>
+    </mat-menu>
+  </div>
+</nav>
